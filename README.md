@@ -1,8 +1,8 @@
 # CVApps
-*Final project for 16-423.*
+*Final project for 16-423 Fall 2015.*
 
 ## Real-Time Lane Tracking for Mobile Devices
-Jaineel Dalal (jdalal), William Ku (wku)
+Jaineel Dalal (*jdalal*), William Ku (*wku*)
 
 ### Summary
 Our project aims to provide a more convenient way for the driver to stay within driving lanes - a difficult problem for even seasoned drivers, especially in Pittsburgh - through a projected guiding line that the driver can follow in real-time. We look to efficient Hough transform implementations and hope to achieve near- or over 30 frame-per-second results using OpenGL ES and potentially the GPUImage library. If time permits, we would like to extend the solution to curve representations as well.
@@ -14,15 +14,18 @@ This project takes advantage of the available line detection algorithms in OpenG
 The line detection algorithms (namely, Hough transform) in OpenCV is too slow for real-time. This poses a challenge since the driver needs real-time guidance in real world driving situations. We hope to discover a more efficient approach or an alternative solution for this mobile application.
 
 ### Requirements
+```
 PLAN TO ACHIEVE:
 - Detection of the left and right lane markers that belong to the driver’s lane;
 - Extraction of the left and right lane markers away from other detected lines, if any;
 - Projection of visual marker for the driver’s guidance.
-
+```
+```
 HOPE TO ACHIEVE
 - Apply the planned requirements to curves (in turning situations);
 - Pre-driving calibration to understand the vehicle side extensions;
 - Projection of the side limits for staying in the current lane.
+```
 
 ### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.

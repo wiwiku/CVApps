@@ -3,7 +3,6 @@
 
 ## Real-Time Lane Tracking for Mobile Devices
 Jaineel Dalal (jdalal), William Ku (wku)
-
 https://github.com/wiwiku/CVApps
 
 ### Summary

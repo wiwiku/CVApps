@@ -1,6 +1,5 @@
 # Real-Time Lane Tracking for Mobile Devices
-*Final project for 16-423 Fall 2015.*
-
+*Final project for 16-423 Fall 2015.* <br>
 Jaineel Dalal (*jdalal*), William Ku (*wku*)
 
 ### Summary
@@ -30,32 +29,19 @@ For validation, we measure the performance of our application against available 
 The scope of the project is determined with the limited time resources in mind. We are confident that we can achieve the required functionalities, possibly with cushion time for extra validation testing or adding desired features. The detailed project roadmap is shown in the next section.
 
 ### Schedule
-Week of 11/9
-Jaineel: Test Hough transform on OpenGL ES
-William: Test Hough transform on GPUImage
-
-Week of 11/16
-Jaineel: Implement lane marker filtering
-William: Integrate video feed and line detection
-
-Week of 11/23*
-Jaineel: Project visual guidance marker
-William: Project visual guidance marker
-
-Week of 11/30
-Jaineel: Integration testing
-William: Integration testing
-
-Week of 12/7
-Jaineel: Reporting
-William: Reporting
-
+| Week of | Jaineel | William |
+|---------|---------|---------|
+| 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage |
+| 11/16 | Implement lane marker filtering | Integrate video feed and line detection |
+| 11/23* | Project visual guidance marker | Project visual guidance marker |
+| 11/30 | Integration testing | Integration testing |
+| 12/7 | Reporting | Reporting |
 * Denotes light workload week for time cushion and holidays
 
 ### References
-[1] Abdulhakam.AM.Assidiq, Othman O. Khalifa, Md. Rafiqul Islam, Sheroz Khan : Real time Lane Detection for Autonomous Vehicles, International Conference on Computer and Communication Engineering, 2008
-[2] Mohamed Aly : Real time detection of Lane Markers in Urban Streets, IEEE Intelligent Vehicles Symposium, 2008
-[3] Feixiang Ren, Jinsheng Huang, Mutsuhiro Terauchi, Ruyi Jiang, and Reinhard Klette: Lane Detection on the iPhone
-[4] Jiayong Deng, Youngjoon Han: A Real-time System of Lane Detection and Tracking Based on Optimized RANSAC B-Spline Fitting, RACS’13
+[1] Abdulhakam.AM.Assidiq, Othman O. Khalifa, Md. Rafiqul Islam, Sheroz Khan : Real time Lane Detection for Autonomous Vehicles, International Conference on Computer and Communication Engineering, 2008 <br>
+[2] Mohamed Aly : Real time detection of Lane Markers in Urban Streets, IEEE Intelligent Vehicles Symposium, 2008 <br>
+[3] Feixiang Ren, Jinsheng Huang, Mutsuhiro Terauchi, Ruyi Jiang, and Reinhard Klette: Lane Detection on the iPhone <br>
+[4] Jiayong Deng, Youngjoon Han: A Real-time System of Lane Detection and Tracking Based on Optimized RANSAC B-Spline Fitting, RACS’13 <br>
 [5] https://github.com/BradLarson/GPUImage/issues/309
 

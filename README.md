@@ -1,7 +1,5 @@
-# CVApps
+# CVApps - Real-Time Lane Tracking for Mobile Devices
 *Final project for 16-423 Fall 2015.*
-
-## Real-Time Lane Tracking for Mobile Devices
 Jaineel Dalal (*jdalal*), William Ku (*wku*)
 
 ### Summary

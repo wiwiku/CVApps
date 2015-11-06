@@ -1,37 +1,37 @@
 # CVApps
 Final project for 16-423.
 
-=== Real-Time Lane Tracking for Mobile Devices ===
+### Real-Time Lane Tracking for Mobile Devices
 Jaineel Dalal (jdalal), William Ku (wku)
 https://github.com/wiwiku/CVApps
 
-### Summary ###
+### Summary
 Our project aims to provide a more convenient way for the driver to stay within driving lanes - a difficult problem for even seasoned drivers, especially in Pittsburgh - through a projected guiding line that the driver can follow in real-time. We look to efficient Hough transform implementations and hope to achieve near- or over 30 frame-per-second results using OpenGL ES and potentially the GPUImage library. If time permits, we would like to extend the solution to curve representations as well.
 
-### Background ###
+### Background
 This project takes advantage of the available line detection algorithms in OpenGL ES and GPUImage. We are interested in exploiting the results presented in [1,2,3,4] to implement real-time mobile applications. From some initial research, we see that the naive usage of Hough transform in OpenCV will not allow real-time processing [5]. With the aforementioned technologies, real-time results may be possible.
 
-### Challenges ###
+### Challenges
 The line detection algorithms (namely, Hough transform) in OpenCV is too slow for real-time. This poses a challenge since the driver needs real-time guidance in real world driving situations. We hope to discover a more efficient approach or an alternative solution for this mobile application.
 
-### Requirements ###
+### Requirements
 PLAN TO ACHIEVE:
 - Detection of the left and right lane markers that belong to the driver’s lane;
 - Extraction of the left and right lane markers away from other detected lines, if any;
 - Projection of visual marker for the driver’s guidance.
 
-HOPE TO ACHIEVE ###
+HOPE TO ACHIEVE
 - Apply the planned requirements to curves (in turning situations);
 - Pre-driving calibration to understand the vehicle side extensions;
 - Projection of the side limits for staying in the current lane.
 
-### Success Metrics ###
+### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.
 
-### Project Feasibility ###
+### Project Feasibility
 The scope of the project is determined with the limited time resources in mind. We are confident that we can achieve the required functionalities, possibly with cushion time for extra validation testing or adding desired features. The detailed project roadmap is shown in the next section.
 
-### Schedule ###
+### Schedule
 Week of 11/9
 Jaineel: Test Hough transform on OpenGL ES
 William: Test Hough transform on GPUImage
@@ -54,7 +54,7 @@ William: Reporting
 
 * Denotes light workload week for time cushion and holidays
 
-### References ###
+### References
 [1] Abdulhakam.AM.Assidiq, Othman O. Khalifa, Md. Rafiqul Islam, Sheroz Khan : Real time Lane Detection for Autonomous Vehicles, International Conference on Computer and Communication Engineering, 2008
 [2] Mohamed Aly : Real time detection of Lane Markers in Urban Streets, IEEE Intelligent Vehicles Symposium, 2008
 [3] Feixiang Ren, Jinsheng Huang, Mutsuhiro Terauchi, Ruyi Jiang, and Reinhard Klette: Lane Detection on the iPhone

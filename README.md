@@ -3,7 +3,6 @@
 
 ## Real-Time Lane Tracking for Mobile Devices
 Jaineel Dalal (jdalal), William Ku (wku)
-https://github.com/wiwiku/CVApps
 
 ### Summary
 Our project aims to provide a more convenient way for the driver to stay within driving lanes - a difficult problem for even seasoned drivers, especially in Pittsburgh - through a projected guiding line that the driver can follow in real-time. We look to efficient Hough transform implementations and hope to achieve near- or over 30 frame-per-second results using OpenGL ES and potentially the GPUImage library. If time permits, we would like to extend the solution to curve representations as well.

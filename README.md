@@ -14,18 +14,15 @@ This project takes advantage of the available line detection algorithms in OpenG
 The line detection algorithms (namely, Hough transform) in OpenCV is too slow for real-time. This poses a challenge since the driver needs real-time guidance in real world driving situations. We hope to discover a more efficient approach or an alternative solution for this mobile application.
 
 ### Requirements
-```
 PLAN TO ACHIEVE:
 - Detection of the left and right lane markers that belong to the driver’s lane;
 - Extraction of the left and right lane markers away from other detected lines, if any;
 - Projection of visual marker for the driver’s guidance.
-```
-```
+
 HOPE TO ACHIEVE
 - Apply the planned requirements to curves (in turning situations);
 - Pre-driving calibration to understand the vehicle side extensions;
 - Projection of the side limits for staying in the current lane.
-```
 
 ### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.

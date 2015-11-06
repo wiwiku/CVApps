@@ -1,5 +1,5 @@
 # Real-Time Lane Tracking for Mobile Devices
-*Final project for 16-423 Fall 2015.* <br>
+Final project for 16-423 Fall 2015. <br>
 Jaineel Dalal (*jdalal*), William Ku (*wku*)
 
 ### Summary

@@ -35,72 +35,46 @@
 //    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1920x1080 cameraPosition:AVCaptureDevicePositionBack];
 
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-//    videoCamera.horizontallyMirrorFrontFacingCamera = NO;
-//    videoCamera.horizontallyMirrorRearFacingCamera = NO;
+	videoCamera.runBenchmark = YES;
 
-    filter = [[GPUImageSepiaFilter alloc] init];
-  
-//    filter = [[GPUImageTiltShiftFilter alloc] init];
-//    [(GPUImageTiltShiftFilter *)filter setTopFocusLevel:0.65];
-//    [(GPUImageTiltShiftFilter *)filter setBottomFocusLevel:0.85];
-//    [(GPUImageTiltShiftFilter *)filter setBlurSize:1.5];
-//    [(GPUImageTiltShiftFilter *)filter setFocusFallOffRate:0.2];
-    
-//    filter = [[GPUImageSketchFilter alloc] init];
-//    filter = [[GPUImageColorInvertFilter alloc] init];
-//    filter = [[GPUImageSmoothToonFilter alloc] init];
-//    GPUImageRotationFilter *rotationFilter = [[GPUImageRotationFilter alloc] initWithRotation:kGPUImageRotateRightFlipVertical];
-    
-    [videoCamera addTarget:filter];
-    GPUImageView *filterView = (GPUImageView *)self.view;
-//    filterView.fillMode = kGPUImageFillModeStretch;
-//    filterView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
-    
-    // Record a movie for 10 s and store it in /Documents, visible via iTunes file sharing
-    
-//    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie.m4v"];
-//    unlink([pathToMovie UTF8String]); // If a file already exists, AVAssetWriter won't let you record new frames, so delete the old movie
-//    NSURL *movieURL = [NSURL fileURLWithPath:pathToMovie];
-//    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480.0, 640.0)];
-//    movieWriter.encodingLiveVideo = YES;
-//    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(640.0, 480.0)];
-//    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(720.0, 1280.0)];
-//    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(1080.0, 1920.0)];
-//    [filter addTarget:movieWriter];
-    [filter addTarget:filterView];
-    
-    [videoCamera startCameraCapture];
-    
-//    double delayToStartRecording = 0.5;
-//    dispatch_time_t startTime = dispatch_time(DISPATCH_TIME_NOW, delayToStartRecording * NSEC_PER_SEC);
-//    dispatch_after(startTime, dispatch_get_main_queue(), ^(void){
-//        NSLog(@"Start recording");
-//        
-//        videoCamera.audioEncodingTarget = movieWriter;
-//        [movieWriter startRecording];
+//    filter = [[GPUImageSepiaFilter alloc] init];
+	GPUImageView *filterView = (GPUImageView *)self.view;
 
-//        NSError *error = nil;
-//        if (![videoCamera.inputCamera lockForConfiguration:&error])
-//        {
-//            NSLog(@"Error locking for configuration: %@", error);
-//        }
-//        [videoCamera.inputCamera setTorchMode:AVCaptureTorchModeOn];
-//        [videoCamera.inputCamera unlockForConfiguration];
-
-//        double delayInSeconds = 10.0;
-//        dispatch_time_t stopTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//        dispatch_after(stopTime, dispatch_get_main_queue(), ^(void){
-//            
-//            [filter removeTarget:movieWriter];
-//            videoCamera.audioEncodingTarget = nil;
-//            [movieWriter finishRecording];
-//            NSLog(@"Movie completed");
+	// Hough
+	GPUImageHoughTransformLineDetector *lineDetector = [[GPUImageHoughTransformLineDetector alloc] init];
+//	lineDetector.edgeThreshold = 0.05f; // default = 0.0
+	lineDetector.lineDetectionThreshold = 0.175f; // default = 0.12
 	
-//            [videoCamera.inputCamera lockForConfiguration:nil];
-//            [videoCamera.inputCamera setTorchMode:AVCaptureTorchModeOff];
-//            [videoCamera.inputCamera unlockForConfiguration];
-//        });
-//    });
+    // Daisy chain the filters together (you can add as many filters as you like)
+    [videoCamera addTarget:lineDetector];
+	[videoCamera addTarget:filterView];
+
+    [lineDetector setLinesDetectedBlock:^(GLfloat* lineArray, NSUInteger linesDetected, CMTime frameTime){
+        NSLog(@"Number of lines: %ld", (unsigned long)linesDetected);
+        
+        GPUImageLineGenerator *lineGenerator = [[GPUImageLineGenerator alloc] init];
+//        lineGenerator.crosshairWidth = 10.0;
+        [lineGenerator setLineColorRed:1.0 green:0.0 blue:0.0];
+        [lineGenerator forceProcessingAtSize:CGSizeMake(640.0, 480.0)];
+        
+//        GPUImageAlphaBlendFilter *blendFilter = [[GPUImageAlphaBlendFilter alloc] init];
+//        [blendFilter forceProcessingAtSize:CGSizeMake(640.0, 480.0)];
+//        
+//        [videoCamera addTarget:blendFilter];
+//        
+//        [lineGenerator addTarget:blendFilter];
+//		
+//		[blendFilter addTarget:filterView];
+//        
+//        [blendFilter useNextFrameForImageCapture];
+		
+        [lineGenerator renderLinesFromArray:lineArray count:linesDetected frameTime:frameTime];
+    }];
+
+//    [videoCamera addTarget:filter];
+//    [filter addTarget:filterView];
+	
+    [videoCamera startCameraCapture];
 }
 
 - (void)viewDidUnload

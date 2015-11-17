@@ -204,6 +204,7 @@
 				TargetAttributes = {
 					52BAF48A1BB3460400E09AB6 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = XJ78NXQLKR;
 					};
 					52BAF4A31BB3460500E09AB6 = {
 						CreatedOnToolsVersion = 6.4;
@@ -389,12 +390,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Intro_GPUImage",
 				);
 				INFOPLIST_FILE = Intro_GPUImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CMU-16432.Intro-GPUImage-wku";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -403,12 +407,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Intro_GPUImage",
 				);
 				INFOPLIST_FILE = Intro_GPUImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CMU-16432.Intro-GPUImage-wku";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

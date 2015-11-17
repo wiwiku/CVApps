@@ -25,26 +25,49 @@
     videoView_ = [[GPUImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
     // Important: add as a subview
     [self.view addSubview:videoView_];
-    
-    // Set the movie file to read
+	
+	// Set the movie file to read
     NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"simon" withExtension:@"mov"];
     
     GPUImageMovie *movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
-    movieFile.runBenchmark = NO;
+    movieFile.runBenchmark = YES;
     movieFile.playAtActualSpeed = YES;
-    
-    // Initialize filters
-    GPUImageSepiaFilter *sepiaFilter = [[GPUImageSepiaFilter alloc] init];
-	GPUImageHoughTransformLineDetector *houghTransform = [[GPUImageHoughTransformLineDetector alloc] init];
-    
-    // Daisy chain the filters together (you can add as many filters as you like)
-    [movieFile addTarget:houghTransform];
-    [sepiaFilter addTarget:videoView_];
-    
-    // Rotates the video right so it displays properly
-    [sepiaFilter setInputRotation:kGPUImageRotateRight atIndex:0];
-    
-    // Process the movie
+	
+	GPUImageSepiaFilter *customFilter = [[GPUImageSepiaFilter alloc] init];
+	[movieFile addTarget:customFilter];
+	[customFilter addTarget:videoView_];
+	
+//	// Hough
+//	GPUImageHoughTransformLineDetector *lineDetector = [[GPUImageHoughTransformLineDetector alloc] init];
+////	lineDetector.edgeThreshold = 0.05f; // default = 0.0
+//	lineDetector.lineDetectionThreshold = 0.175f; // default = 0.12
+//	
+//    // Daisy chain the filters together (you can add as many filters as you like)
+//    [movieFile addTarget:lineDetector];
+//
+//    [lineDetector setLinesDetectedBlock:^(GLfloat* lineArray, NSUInteger linesDetected, CMTime frameTime){
+//        NSLog(@"Number of lines: %ld", (unsigned long)linesDetected);
+//        
+//        GPUImageLineGenerator *lineGenerator = [[GPUImageLineGenerator alloc] init];
+////        lineGenerator.crosshairWidth = 10.0;
+//        [lineGenerator setLineColorRed:1.0 green:0.0 blue:0.0];
+//        [lineGenerator forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+//		
+//        GPUImageAlphaBlendFilter *blendFilter = [[GPUImageAlphaBlendFilter alloc] init];
+//        [blendFilter forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+//		
+//        [movieFile addTarget:blendFilter];
+//        
+//        [lineGenerator addTarget:blendFilter];
+//		
+//		[blendFilter addTarget:videoView_];
+//        
+//        [blendFilter useNextFrameForImageCapture];
+//        
+//        [lineGenerator renderLinesFromArray:lineArray count:linesDetected frameTime:frameTime];
+//    }];
+	
+	// Process the movie
     [movieFile startProcessing];
 }
 

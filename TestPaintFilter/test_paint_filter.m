@@ -1,8 +1,8 @@
 close all;
 clear all;
 
-img = imread('road.jpg');
-I = rgb2gray(img(150:end, :, :));
+img = imread('road2.jpg');
+I = rgb2gray(img(50:end-70, :, :));
 
 I = imfilter(I, fspecial('Gaussian', [30,30], 0.5), 'replicate');
 
@@ -19,7 +19,6 @@ Iy = imfilter(I, paint_filter', 'replicate');
 % imagesc(Ix+Iy);
 
 Isum = im2double(Ix + Iy);
-imagesc(Isum);
 Ig = Isum;
 
 BW = edge(Ig,'canny', 0.2);

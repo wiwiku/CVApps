@@ -43,13 +43,30 @@
     
     // Initialize all the required filters over here before Daisychaining them
     // Grayscale
-    GPUImageGrayscaleFilter *videoGrayFilter = [[GPUImageGrayscaleFilter alloc] init];
+    /*GPUImageGrayscaleFilter *videoGrayFilter = [[GPUImageGrayscaleFilter alloc] init];
     //[videoGrayFilter forceProcessingAtSize:CGSizeMake(640.0, 480.0)];
     [videoGrayFilter forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(640, 480)];
     
+    // Gaussian blurring
+    GPUImageGaussianBlurFilter *gaussianblurFilter = [[GPUImageGaussianBlurFilter alloc] init];
+    gaussianblurFilter.blurRadiusInPixels = 3.5;
+    gaussianblurFilter.blurPasses = 1;*/
+    
+    // Canny Edge Detection
+    GPUImageCannyEdgeDetectionFilter *cannyEdgeFilter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
+    cannyEdgeFilter.blurRadiusInPixels = 2;
+    cannyEdgeFilter.upperThreshold = 0.5;
+    cannyEdgeFilter.lowerThreshold = 0.2;
+    
+    // Hough Transform
+    
     // Daisy chain all the filters together
-    [videoCamera addTarget:videoGrayFilter];
-    [videoGrayFilter addTarget:videoView_];
+    //[videoCamera addTarget:videoGrayFilter];
+    //[videoGrayFilter addTarget:gaussianblurFilter];
+    //[gaussianblurFilter addTarget:videoView_];
+    [videoCamera addTarget:cannyEdgeFilter];
+    [cannyEdgeFilter addTarget:videoView_];
+    
     
     // Starting to capture
     [videoCamera startCameraCapture];

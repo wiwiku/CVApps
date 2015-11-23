@@ -28,13 +28,15 @@ For validation, we measure the performance of our application against available 
 ### Project Feasibility
 The scope of the project is determined with the limited time resources in mind. We are confident that we can achieve the required functionalities, possibly with cushion time for extra validation testing or adding desired features. The detailed project roadmap is shown in the next section.
 
-### Schedule
+### Schedule (Updated 11/23/2015)
 | Week of | Jaineel | William |
 |---------|---------|---------|
 | 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage |
 | 11/16 | Implement lane marker filtering | Integrate video feed and line detection |
-| 11/23* | Project visual guidance marker | Project visual guidance marker |
-| 11/30 | Integration testing | Integration testing |
+| 11/23 | Implement lane marker filtering | Implement lane marker filtering |
+| 11/26 | Project visual guidance marker | Compute center line |
+| 11/30 | Benchmarking | Integration testing |
+| 12/3 | Real-time testing | Real-time testing |
 | 12/7 | Reporting | Reporting |
 * Denotes light workload week for time cushion and holidays
 

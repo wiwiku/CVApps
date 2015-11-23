@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Initialize the Back Camera in Portrait Mode with a preset of 640x480
-    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition: AVCaptureDevicePositionBack];
+    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetMedium cameraPosition: AVCaptureDevicePositionBack];
     
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
@@ -37,7 +37,7 @@
     videoCamera.runBenchmark = YES;
     
     // Initialize the Video View
-    videoView_ = [[GPUImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 640, 480)];
+    videoView_ = [[GPUImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
     // Important: add as a subview
     [self.view addSubview:videoView_];
     
@@ -54,7 +54,7 @@
     
     // Canny Edge Detection
     GPUImageCannyEdgeDetectionFilter *cannyEdgeFilter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
-    cannyEdgeFilter.blurRadiusInPixels = 2;
+    cannyEdgeFilter.blurRadiusInPixels = 1.5;
     cannyEdgeFilter.upperThreshold = 0.5;
     cannyEdgeFilter.lowerThreshold = 0.2;
     

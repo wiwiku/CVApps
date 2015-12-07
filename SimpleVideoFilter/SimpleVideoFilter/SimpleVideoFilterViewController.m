@@ -78,63 +78,59 @@
 	// Callback function for line detection
     [houghDetector setLinesDetectedBlock:^(GLfloat* lineArray, NSUInteger linesDetected, CMTime frameTime){
 		// Find left and right lanes
-		GLfloat lines[4];
-		float targetm = 0.5;
-		float leftmin = 100, rightmin = 100;
+		float lowm = 0.5, highm = 0.65;
+		float leftcount = 0, leftm = 0, leftb = 0, rightcount = 0, rightm = 0, rightb = 0;
 		bool hasLeft = false, hasRight = false;
 		for (int i = 0; i < linesDetected; i++) {
-			float m = lineArray[2*i], b = lineArray[2*i+1], dm;
-			NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
+			float m = lineArray[2*i], b = lineArray[2*i+1];
 
-			if (m > 0) { // Right side
-				dm = fabsf(m - targetm);
-				if (dm < rightmin) {
-					lines[0] = m;
-					lines[1] = b;
-					rightmin = dm;
-					hasRight = true;
-				}
-			} else { // Left side
-				dm = fabsf(m + targetm);
-				if (dm < leftmin) {
-					lines[2] = m;
-					lines[3] = b;
-					leftmin = dm;
-					hasLeft = true;
-				}
+			if (m > lowm && m < highm) { // Right side
+				NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
+				rightcount++;
+				rightm += m;
+				rightb += b;
+				hasRight = true;
+
+			} else if (-m > lowm && -m < highm) { // Left side
+				NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
+				leftcount++;
+				leftm += m;
+				leftb += b;
+				hasLeft = true;
+
 			}
 		}
-
+		
 		// Copy filtered lines to old array
 		int nLines = 0;
 		float xInter = 0;
 		if (hasRight) {
-			lineArray[0] = lines[0];
-			lineArray[1] = lines[1];
-			xInter += [self xInterceptAty:1 m:lines[0] b:lines[1]];
+			lineArray[0] = rightm / rightcount;
+			lineArray[1] = rightb / rightcount;
+			xInter += [self xInterceptAty:1 m:lineArray[0] b:lineArray[1]];
 			nLines++;
 
 			if (hasLeft) {
-				lineArray[2] = lines[2];
-				lineArray[3] = lines[3];
-				xInter += [self xInterceptAty:1 m:lines[2] b:lines[3]];
+				lineArray[2] = leftm / leftcount;
+				lineArray[3] = leftb / leftcount;
+				xInter += [self xInterceptAty:1 m:lineArray[2] b:lineArray[3]];
 				nLines++;
 			}
 		} else if (hasLeft) {
-			lineArray[0] = lines[2];
-			lineArray[1] = lines[3];
-			xInter += [self xInterceptAty:1 m:lines[2] b:lines[3]];
+			lineArray[0] = leftm / leftcount;
+			lineArray[1] = leftb / leftcount;
+			xInter += [self xInterceptAty:1 m:lineArray[2] b:lineArray[3]];
 			nLines++;
 		}
 
 		NSLog(@"Number of lines: %ld; Number of new lines: %d", (unsigned long) linesDetected, nLines);
 
 		for (int i = 0; i < nLines; i++) {
-			NSLog(@"%f %f %f %f", lines[0], lines[1], lines[2], lines[3]);
+			NSLog(@"%f %f %f %f", lineArray[0], lineArray[1], lineArray[2], lineArray[3]);
 		}
 
-		[lineGenerator renderLinesFromArray:lineArray count:linesDetected frameTime:frameTime];
-
+		[lineGenerator renderLinesFromArray:lineArray count:nLines frameTime:frameTime];
+		
 		if (nLines == 0) xInter = 0.5;
 		else xInter /= nLines;
 		int nPoints = 20;

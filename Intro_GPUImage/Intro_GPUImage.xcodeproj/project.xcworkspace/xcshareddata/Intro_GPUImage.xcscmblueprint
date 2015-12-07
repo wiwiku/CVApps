@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0BC450751089EB5C5FCAEB5E5F1A64E635B1D59D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BEC252CCCEA080B6C138E15A1A9BAD9E62DB0D71" : 0,
+    "0BC450751089EB5C5FCAEB5E5F1A64E635B1D59D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6E3A3D16-CF88-4031-972D-CE19AB9A241C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BEC252CCCEA080B6C138E15A1A9BAD9E62DB0D71" : "",
+    "0BC450751089EB5C5FCAEB5E5F1A64E635B1D59D" : "Intro_GPUImage\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Intro_GPUImage",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Intro_GPUImage.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/slucey-cs-cmu-edu\/Intro_GPUImage",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0BC450751089EB5C5FCAEB5E5F1A64E635B1D59D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/wiwiku\/CVApps.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BEC252CCCEA080B6C138E15A1A9BAD9E62DB0D71"
+    }
+  ]
+}

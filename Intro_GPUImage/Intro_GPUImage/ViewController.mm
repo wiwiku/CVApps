@@ -30,7 +30,7 @@
     [self.view addSubview:imageView_];
     
     // Read in the image
-    UIImage *inputImage = [UIImage imageNamed:@"lanecrop.jpg"];
+    UIImage *inputImage = [UIImage imageNamed:@"solid.jpg"];
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
 	
 	// Initialize filters
@@ -39,6 +39,7 @@
 	
 	GPUImageLineGenerator *lineGenerator = [[GPUImageLineGenerator alloc] init];
 	[lineGenerator setLineColorRed:1.0 green:0.0 blue:0.0];
+	[lineGenerator setLineWidth:5.0];
 	[lineGenerator forceProcessingAtSize:[stillImageSource outputImageSize]];
 	
 	GPUImageCrosshairGenerator *crosshairGenerator = [[GPUImageCrosshairGenerator alloc] init];
@@ -61,52 +62,69 @@
 	[blendFilter2 addTarget:imageView_];
 
     [houghDetector setLinesDetectedBlock:^(GLfloat* lineArray, NSUInteger linesDetected, CMTime frameTime){
-        NSLog(@"Number of lines: %ld", (unsigned long) linesDetected);
-        //[blendFilter1 useNextFrameForImageCapture];
-		
 		// Filter lines with slope greater than threshold
-		int nLines = 2;
-		GLfloat lines[(unsigned long) nLines * 2];
-		float thres = 1; // 45 degree
-		float leftmin = 100, rightmin = 100;
-		float centerx = 0.5, centery = 1.0;
 
-		for (int i = 0; i < (unsigned long) linesDetected; i++) {
-			float m = lineArray[2*i], b = lineArray[2*i+1], d;
-			if (m > thres) { // Right side
-				d = [self distWithm:m b:b x:centerx y:centery];
-				if (d < rightmin) {
+        GLfloat lines[4];
+		float targetm = 0.5;
+		float leftmin = 100, rightmin = 100;
+		bool hasLeft = false, hasRight = false;
+		for (int i = 0; i < linesDetected; i++) {
+			float m = lineArray[2*i], b = lineArray[2*i+1], dm;
+			NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
+
+			if (m > 0) { // Right side
+				dm = fabsf(m - targetm);
+				if (dm < rightmin) {
 					lines[0] = m;
 					lines[1] = b;
-					rightmin = d;
+					rightmin = dm;
+					hasRight = true;
 				}
-			} else if(-m > thres) { // Left side
-				d = [self distWithm:m b:b x:centerx y:centery];
-				if (d < leftmin) {
+			} else { // Left side
+				dm = fabsf(m + targetm);
+				if (dm < leftmin) {
 					lines[2] = m;
 					lines[3] = b;
-					leftmin = d;
+					leftmin = dm;
+					hasLeft = true;
 				}
 			}
 		}
 		
 		// Copy filtered lines to old array
+		int nLines = 0;
+		float xInter = 0;
+		if (hasRight) {
+			lineArray[0] = lines[0];
+			lineArray[1] = lines[1];
+			xInter += [self xInterceptAty:1 m:lines[0] b:lines[1]];
+			nLines++;
+
+			if (hasLeft) {
+				lineArray[2] = lines[2];
+				lineArray[3] = lines[3];
+				xInter += [self xInterceptAty:1 m:lines[2] b:lines[3]];
+				nLines++;
+			}
+		} else if (hasLeft) {
+			lineArray[0] = lines[2];
+			lineArray[1] = lines[3];
+			xInter += [self xInterceptAty:1 m:lines[2] b:lines[3]];
+			nLines++;
+		}
+		
 		for (int i = 0; i < nLines; i++) {
-			lineArray[2*i] = lines[2*i];
-			lineArray[2*i+1] = lines[2*i+1];
-			NSLog(@"%f %f", lineArray[2*i], lineArray[2*i+1]);
+			NSLog(@"%f %f %f %f", lines[0], lines[1], lines[2], lines[3]);
 		}
 
 		[lineGenerator renderLinesFromArray:lineArray count:nLines frameTime:frameTime];
 		
-		float r = [self xInterceptAty:1 m:lines[0] b:lines[1]];
-		float l = [self xInterceptAty:1 m:lines[2] b:lines[3]];
-		float mid = (l + r) / 2;
-		NSLog(@"%f %f %f", r, l, mid);
+		if (nLines == 0) xInter = 0.5;
+		else xInter /= nLines;
 		int nPoints = 20;
 		GLfloat center[nPoints * 2];
 		for (int i = 0; i < nPoints; i++) {
-			center[2*i] = mid;
+			center[2*i] = xInter;
 			center[2*i+1] = 1.0 - 0.8 / nPoints * i;
 		}
 		[crosshairGenerator renderCrosshairsFromArray:center count:nPoints frameTime:frameTime];
@@ -122,15 +140,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (float)distWithm:(float)m b:(float)b x:(float)x y:(float)y {
-	return fabsf(m * x - y + b) / sqrt(m * m + 1);
-}
+//- (float)distWithm:(float)m b:(float)b x:(float)x y:(float)y {
+//	return fabsf(m * x - y + b) / sqrt(m * m + 1);
+//}
 
 - (float)xInterceptAty:(float)y m:(float)m b:(float)b {
-	if (m >= 100000) {
-		return b;
-	} else {
-		return (y - b) / m / 2 + 0.5;
-	}
+	if (m >= 100000) return b / 2 + 0.5;
+	else return (y - b) / m / 2 + 0.5;
 }
 @end

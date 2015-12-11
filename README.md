@@ -13,14 +13,14 @@ The line detection algorithms (namely, Hough transform) in OpenCV is too slow fo
 
 ### Requirements
 PLAN TO ACHIEVE:
-- Detection of the left and right lane markers that belong to the driver’s lane; [Achieved]
-- Extraction of the left and right lane markers away from other detected lines, if any;  [Achieved]
-- Projection of visual marker for the driver’s guidance.  [Achieved]
+- Detection of the left and right lane markers that belong to the driver’s lane; [<strong>Achieved</strong>]
+- Extraction of the left and right lane markers away from other detected lines, if any;  [<strong>Achieved</strong>]
+- Projection of visual marker for the driver’s guidance.  [<strong>Achieved</strong>]
 
 HOPE TO ACHIEVE
-- Apply the planned requirements to curves (in turning situations); [<strong>Did not achieve]
-- Pre-driving calibration to understand the vehicle side extensions; [Did not achieve]
-- Projection of the side limits for staying in the current lane. [Did not achieve]
+- Apply the planned requirements to curves (in turning situations); [<strong>Did not achieve</strong>]
+- Pre-driving calibration to understand the vehicle side extensions; [<strong>Did not achieve</strong>]
+- Projection of the side limits for staying in the current lane. [<strong>Did not achieve</strong>]
 
 ### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.

@@ -13,14 +13,14 @@ The line detection algorithms (namely, Hough transform) in OpenCV is too slow fo
 
 ### Requirements
 PLAN TO ACHIEVE:
-- Detection of the left and right lane markers that belong to the driver’s lane;
-- Extraction of the left and right lane markers away from other detected lines, if any;
-- Projection of visual marker for the driver’s guidance.
+- Detection of the left and right lane markers that belong to the driver’s lane; [Achieved]
+- Extraction of the left and right lane markers away from other detected lines, if any;  [Achieved]
+- Projection of visual marker for the driver’s guidance.  [Achieved]
 
 HOPE TO ACHIEVE
-- Apply the planned requirements to curves (in turning situations);
-- Pre-driving calibration to understand the vehicle side extensions;
-- Projection of the side limits for staying in the current lane.
+- Apply the planned requirements to curves (in turning situations); [Did not achieve]
+- Pre-driving calibration to understand the vehicle side extensions; [Did not achieve]
+- Projection of the side limits for staying in the current lane. [Did not achieve]
 
 ### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.
@@ -28,16 +28,16 @@ For validation, we measure the performance of our application against available 
 ### Project Feasibility
 The scope of the project is determined with the limited time resources in mind. We are confident that we can achieve the required functionalities, possibly with cushion time for extra validation testing or adding desired features. The detailed project roadmap is shown in the next section.
 
-### Schedule (Updated 11/23/2015)
+### Schedule (Updated 12/11/2015)
 | Week of | Jaineel | William |
 |---------|---------|---------|
-| 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage |
-| 11/16 | Implement lane marker filtering | Integrate video feed and line detection |
-| 11/23* | Implement lane marker filtering | Implement lane marker filtering |
-| 11/26 | Project visual guidance marker | Compute center line |
-| 11/30 | Benchmarking | Integration testing |
-| 12/3 | Real-time testing | Real-time testing |
-| 12/7 | Reporting | Reporting |
+| 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage | [On-time]
+| 11/16 | Implement lane marker filtering | Integrate video feed and line detection | [Behind]
+| 11/23* | Implement lane marker filtering | Implement lane marker filtering | [Behind]
+| 11/26 | Project visual guidance marker | Compute center line | [Behind]
+| 11/30 | Benchmarking | Integration testing | [Behind]
+| 12/3 | Real-time testing | Real-time testing | [On-time]
+| 12/7 | Reporting | Reporting | [On-time]
 * Denotes light workload week for time cushion and holidays
 
 ### References

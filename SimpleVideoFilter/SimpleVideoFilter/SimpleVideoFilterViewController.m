@@ -67,7 +67,7 @@
 	[blendFilter1 addTarget:blendFilter2];
 	[crosshairGenerator addTarget:blendFilter2];
 
-	[blendFilter1 addTarget:filterView];
+	[blendFilter2 addTarget:filterView];
 
 	// Callback function for line detection
     [houghDetector setLinesDetectedBlock:^(GLfloat* lineArray, NSUInteger linesDetected, CMTime frameTime){
@@ -130,7 +130,7 @@
 		GLfloat center[nPoints * 2];
 		for (int i = 0; i < nPoints; i++) {
 			center[2*i] = xInter;
-			center[2*i+1] = 1.0 - 0.8 / nPoints * i;
+			center[2*i+1] = 1.0 - 0.4 / nPoints * i;
 		}
 		
 		// Render crosses
@@ -153,10 +153,6 @@
 - (float)xInterceptAty:(float)y m:(float)m b:(float)b {
 	if (m >= 100000) return b / 2 + 0.5;
 	else return (y - b) / m / 2 + 0.5;
-}
-
-- (IBAction)updateFilterFromSlider:(id)sender {
-	[(GPUImageHoughTransformLineDetector *)houghDetector setLineDetectionThreshold:[(UISlider*)sender value]];
 }
 
 @end

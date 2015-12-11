@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		794FA6261BFB0C7C00AA5CB9 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794FA6251BFB0C7C00AA5CB9 /* GPUImage.framework */; settings = {ASSET_TAGS = (); }; };
-		794FA62C1BFB0CEF00AA5CB9 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA6271BFB0CEF00AA5CB9 /* Icon-72.png */; settings = {ASSET_TAGS = (); }; };
-		794FA62D1BFB0CEF00AA5CB9 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA6281BFB0CEF00AA5CB9 /* Icon-72@2x.png */; settings = {ASSET_TAGS = (); }; };
-		794FA62E1BFB0CEF00AA5CB9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA6291BFB0CEF00AA5CB9 /* Icon.png */; settings = {ASSET_TAGS = (); }; };
-		794FA62F1BFB0CEF00AA5CB9 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA62A1BFB0CEF00AA5CB9 /* Icon@2x.png */; settings = {ASSET_TAGS = (); }; };
-		794FA6301BFB0CEF00AA5CB9 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA62B1BFB0CEF00AA5CB9 /* iTunesArtwork.png */; settings = {ASSET_TAGS = (); }; };
+		794FA6261BFB0C7C00AA5CB9 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794FA6251BFB0C7C00AA5CB9 /* GPUImage.framework */; };
+		794FA62C1BFB0CEF00AA5CB9 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA6271BFB0CEF00AA5CB9 /* Icon-72.png */; };
+		794FA62D1BFB0CEF00AA5CB9 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA6281BFB0CEF00AA5CB9 /* Icon-72@2x.png */; };
+		794FA62E1BFB0CEF00AA5CB9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA6291BFB0CEF00AA5CB9 /* Icon.png */; };
+		794FA62F1BFB0CEF00AA5CB9 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA62A1BFB0CEF00AA5CB9 /* Icon@2x.png */; };
+		794FA6301BFB0CEF00AA5CB9 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FA62B1BFB0CEF00AA5CB9 /* iTunesArtwork.png */; };
 		BCB5DDCF14E86899000AF3C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5DDCE14E86899000AF3C2 /* UIKit.framework */; };
 		BCB5DDD114E86899000AF3C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5DDD014E86899000AF3C2 /* Foundation.framework */; };
 		BCB5DDD314E86899000AF3C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5DDD214E86899000AF3C2 /* CoreGraphics.framework */; };

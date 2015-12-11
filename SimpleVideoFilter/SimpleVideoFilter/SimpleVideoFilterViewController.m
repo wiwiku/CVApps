@@ -2,9 +2,8 @@
 #import <GPUImage/GPUImage.h>
 
 @interface SimpleVideoFilterViewController (){
-    GPUImageView *videoView_;
-	GPUImageVideoCamera *videoCamera;
-    GPUImageOutput<GPUImageInput> *filter;
+	GPUImageVideoCamera *video;
+	GPUImageHoughTransformLineDetector *houghDetector;
 }
 @end
 
@@ -21,75 +20,73 @@
 {
     [super viewDidLoad];
 	
+	/* === Output view (screen) === */
+	GPUImageView *filterView = (GPUImageView *)self.view;
+	
 	/* === Camera and frame setup === */
-//    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
-//    videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-//	  videoCamera.runBenchmark = YES;
+    video = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
+    video.outputImageOrientation = UIInterfaceOrientationPortrait;
+	video.runBenchmark = YES;
 	
 	/* === Use movie file === */
 	// Set the movie file to read
-    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"simon" withExtension:@"mov"];
-    
-    GPUImageMovie *movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
-    movieFile.runBenchmark = YES;
-    movieFile.playAtActualSpeed = YES;
-
-	/* === Output view (screen) === */
-	GPUImageView *filterView = (GPUImageView *)self.view;
+//    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"forbes" withExtension:@"mov"];
+//    GPUImageMovie *video = [[GPUImageMovie alloc] initWithURL:sampleURL];
+//    video.runBenchmark = YES;
+//    video.playAtActualSpeed = YES;
 
 	/* === Filter declarations === */
-	GPUImageHoughTransformLineDetector *houghDetector = [[GPUImageHoughTransformLineDetector alloc] init];
-	[(GPUImageHoughTransformLineDetector *)houghDetector setLineDetectionThreshold:0.30]; // 0.30 was good for direct camera feed
+	float processWidth  = 480; //self.view.frame.size.height;
+	float processHeight = 640; //self.view.frame.size.width;
+
+	houghDetector = [[GPUImageHoughTransformLineDetector alloc] init];
+	[(GPUImageHoughTransformLineDetector *)houghDetector setLineDetectionThreshold:0.20]; // 0.30 was good for direct camera feed
 
 	GPUImageLineGenerator *lineGenerator = [[GPUImageLineGenerator alloc] init];
 	[lineGenerator setLineColorRed:1.0 green:0.0 blue:0.0];
-	[lineGenerator forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+	[lineGenerator forceProcessingAtSize:CGSizeMake(processWidth, processHeight)];
 	[lineGenerator setLineWidth:10.0];
 
 	GPUImageCrosshairGenerator *crosshairGenerator = [[GPUImageCrosshairGenerator alloc] init];
     crosshairGenerator.crosshairWidth = 15.0;
-    [crosshairGenerator forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+    [crosshairGenerator forceProcessingAtSize:CGSizeMake(processWidth, processHeight)];
 
 	GPUImageAlphaBlendFilter *blendFilter1 = [[GPUImageAlphaBlendFilter alloc] init];
-	[blendFilter1 forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+	[blendFilter1 forceProcessingAtSize:CGSizeMake(processWidth, processHeight)];
 	
 	GPUImageAlphaBlendFilter *blendFilter2 = [[GPUImageAlphaBlendFilter alloc] init];
-	[blendFilter2 forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
-	
-//	GPUImageLuminanceThresholdFilter *thresholdFilter = [[GPUImageLuminanceThresholdFilter alloc] init];
+	[blendFilter2 forceProcessingAtSize:CGSizeMake(processWidth, processHeight)];
 	
 	/* === Filter cascade === */
     // Daisy chain the filters together (you can add as many filters as you like)
-//	[videoCamera addTarget:thresholdFilter];
+    [video addTarget:houghDetector];
 
-    [movieFile addTarget:houghDetector];
-
-	[movieFile addTarget:blendFilter1];
+	[video addTarget:blendFilter1];
 	[lineGenerator addTarget:blendFilter1];
 
 	[blendFilter1 addTarget:blendFilter2];
 	[crosshairGenerator addTarget:blendFilter2];
 
-	[blendFilter2 addTarget:filterView];
-	
+	[blendFilter1 addTarget:filterView];
+
 	// Callback function for line detection
     [houghDetector setLinesDetectedBlock:^(GLfloat* lineArray, NSUInteger linesDetected, CMTime frameTime){
 		// Find lines within slope bound
-		float lowm = 0.5, highm = 0.65;
+		float lowm = 0.4, highm = 0.8; // This set is for portrait (road test) [0.5, 0.65] nice too
+//		float lowm = 2.15, highm = 2.6; // This set is for portrait left (video playing)
 		float leftcount = 0, leftm = 0, leftb = 0, rightcount = 0, rightm = 0, rightb = 0;
 		bool hasLeft = false, hasRight = false;
 		for (int i = 0; i < linesDetected; i++) {
 			float m = lineArray[2*i], b = lineArray[2*i+1];
+//			NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
 
 			if (m > lowm && m < highm) { // Right side
-				NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
 				rightcount++;
 				rightm += m;
 				rightb += b;
 				hasRight = true;
 
 			} else if (-m > lowm && -m < highm) { // Left side
-				NSLog(@"m: %f, b: %f", lineArray[2*i], lineArray[2*i+1]);
 				leftcount++;
 				leftm += m;
 				leftb += b;
@@ -121,9 +118,7 @@
 
 		// Debug prints
 		NSLog(@"Number of lines: %ld; Number of new lines: %d", (unsigned long) linesDetected, nLines);
-		for (int i = 0; i < nLines; i++) {
-			NSLog(@"%f %f %f %f", lineArray[0], lineArray[1], lineArray[2], lineArray[3]);
-		}
+		if (nLines > 0) NSLog(@"%f %f %f %f", lineArray[0], lineArray[1], lineArray[2], lineArray[3]);
 
 		// Render lines
 		[lineGenerator renderLinesFromArray:lineArray count:nLines frameTime:frameTime];
@@ -142,8 +137,11 @@
 		[crosshairGenerator renderCrosshairsFromArray:center count:nPoints frameTime:frameTime];
     }];
 
-	// Start camera
-    [videoCamera startCameraCapture];
+//	// Start camera
+    [video startCameraCapture];
+
+	// Process the movie
+//    [video startProcessing];
 }
 
 - (void)viewDidUnload
@@ -155,6 +153,10 @@
 - (float)xInterceptAty:(float)y m:(float)m b:(float)b {
 	if (m >= 100000) return b / 2 + 0.5;
 	else return (y - b) / m / 2 + 0.5;
+}
+
+- (IBAction)updateFilterFromSlider:(id)sender {
+	[(GPUImageHoughTransformLineDetector *)houghDetector setLineDetectionThreshold:[(UISlider*)sender value]];
 }
 
 @end

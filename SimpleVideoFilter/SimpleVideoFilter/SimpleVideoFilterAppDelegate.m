@@ -13,12 +13,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+	self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-
-	rootViewController = [SimpleVideoFilterViewController alloc];
-//    rootViewController = [[SimpleVideoFilterViewController alloc] initWithNibName:@"SimpleVideoFilterViewController" bundle:nil];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    rootViewController = [[SimpleVideoFilterViewController alloc] initWithNibName:@"SimpleVideoFilterViewController" bundle:nil];
     rootViewController.view.frame = [[UIScreen mainScreen] bounds];
     [self.window addSubview:rootViewController.view];
 

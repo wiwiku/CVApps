@@ -1,7 +1,7 @@
 # Real-Time Lane Tracking for Mobile Devices
 Final project for 16-423 Fall 2015. <br>
 Jaineel Dalal (*jdalal*), William Ku (*wku*) <br>
-<it>(Updated 12/11/2015)</it>
+<i>(Updated 12/11/2015)</i>
 
 ### Summary
 Our project aims to provide a more convenient way for the driver to stay within driving lanes - a difficult problem for even seasoned drivers, especially in Pittsburgh - through a projected guiding line that the driver can follow in real-time. We look to efficient Hough transform implementations and hope to achieve near- or over 30 frame-per-second results using OpenGL ES and potentially the GPUImage library. If time permits, we would like to extend the solution to curve representations as well.
@@ -14,14 +14,14 @@ The line detection algorithms (namely, Hough transform) in OpenCV is too slow fo
 
 ### Requirements
 PLAN TO ACHIEVE:
-- Detection of the left and right lane markers that belong to the driver’s lane; [<strong>Achieved</strong>]
-- Extraction of the left and right lane markers away from other detected lines, if any;  [<strong>Achieved</strong>]
-- Projection of visual marker for the driver’s guidance.  [<strong>Achieved</strong>]
+- Detection of the left and right lane markers that belong to the driver’s lane; [<b>Achieved</b>]
+- Extraction of the left and right lane markers away from other detected lines, if any;  [<b>Achieved</b>]
+- Projection of visual marker for the driver’s guidance.  [<b>Achieved</b>]
 
 HOPE TO ACHIEVE
-- Apply the planned requirements to curves (in turning situations); [<strong>Did not achieve</strong>]
-- Pre-driving calibration to understand the vehicle side extensions; [<strong>Did not achieve</strong>]
-- Projection of the side limits for staying in the current lane. [<strong>Did not achieve</strong>]
+- Apply the planned requirements to curves (in turning situations); [<b>Did not achieve</b>]
+- Pre-driving calibration to understand the vehicle side extensions; [<b>Did not achieve</b>]
+- Projection of the side limits for staying in the current lane. [<b>Did not achieve</b>]
 
 ### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.

@@ -34,12 +34,12 @@ The scope of the project is determined with the limited time resources in mind. 
 |---------|---------|---------|---------|
 | 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage | On-time
 | 11/16 | Implement lane marker filtering | Integrate video feed and line detection | Behind
-| 11/23* | Implement lane marker filtering | Implement lane marker filtering | Behind
+| 11/23 * | Implement lane marker filtering | Implement lane marker filtering | Behind
 | 11/26 | Project visual guidance marker | Compute center line | Behind
 | 11/30 | Benchmarking | Integration testing | Behind
 | 12/3 | Real-time testing | Real-time testing | On-time
 | 12/7 | Reporting | Reporting | On-time
-* Denotes light workload week for time cushion and holidays
+\* Denotes light workload week for time cushion and holidays
 
 ### References
 [1] Abdulhakam.AM.Assidiq, Othman O. Khalifa, Md. Rafiqul Islam, Sheroz Khan : Real time Lane Detection for Autonomous Vehicles, International Conference on Computer and Communication Engineering, 2008 <br>

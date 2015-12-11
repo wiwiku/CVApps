@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>LaneTracking_OpenCV.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D97C317C1C18E7DC00B5588A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D97C31951C18E7DC00B5588A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D97C31A01C18E7DD00B5588A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

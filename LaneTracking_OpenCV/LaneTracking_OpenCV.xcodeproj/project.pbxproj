@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D902B1951C18FBE7001B11FF /* prince_book.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D902B1941C18FBE7001B11FF /* prince_book.jpg */; settings = {ASSET_TAGS = (); }; };
+		D902B1971C19013C001B11FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D902B1961C19013C001B11FF /* AVFoundation.framework */; settings = {ASSET_TAGS = (); }; };
+		D902B1991C194029001B11FF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D902B1981C194029001B11FF /* CoreVideo.framework */; };
+		D902B19B1C194035001B11FF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D902B19A1C194035001B11FF /* CoreMedia.framework */; };
+		D902B19D1C194042001B11FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D902B19C1C194042001B11FF /* ImageIO.framework */; };
+		D97C31821C18E7DC00B5588A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D97C31811C18E7DC00B5588A /* main.m */; };
+		D97C31851C18E7DC00B5588A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D97C31841C18E7DC00B5588A /* AppDelegate.m */; };
+		D97C31881C18E7DC00B5588A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D97C31871C18E7DC00B5588A /* ViewController.mm */; };
+		D97C318B1C18E7DC00B5588A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97C31891C18E7DC00B5588A /* Main.storyboard */; };
+		D97C318D1C18E7DC00B5588A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97C318C1C18E7DC00B5588A /* Assets.xcassets */; };
+		D97C31901C18E7DC00B5588A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97C318E1C18E7DC00B5588A /* LaunchScreen.storyboard */; };
+		D97C319B1C18E7DC00B5588A /* LaneTracking_OpenCVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D97C319A1C18E7DC00B5588A /* LaneTracking_OpenCVTests.m */; };
+		D97C31A61C18E7DD00B5588A /* LaneTracking_OpenCVUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D97C31A51C18E7DD00B5588A /* LaneTracking_OpenCVUITests.m */; };
+		D97C31B41C18E87700B5588A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97C31B31C18E87700B5588A /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
+		D97C31B51C18E87800B5588A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97C31B31C18E87700B5588A /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
+		D97C31B61C18E87800B5588A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97C31B31C18E87700B5588A /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D97C31971C18E7DC00B5588A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D97C31751C18E7DC00B5588A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D97C317C1C18E7DC00B5588A;
+			remoteInfo = LaneTracking_OpenCV;
+		};
+		D97C31A21C18E7DD00B5588A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D97C31751C18E7DC00B5588A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D97C317C1C18E7DC00B5588A;
+			remoteInfo = LaneTracking_OpenCV;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D902B1941C18FBE7001B11FF /* prince_book.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prince_book.jpg; sourceTree = "<group>"; };
+		D902B1961C19013C001B11FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVFoundation.framework; sourceTree = "<group>"; };
+		D902B1981C194029001B11FF /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		D902B19A1C194035001B11FF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D902B19C1C194042001B11FF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D97C317D1C18E7DC00B5588A /* LaneTracking_OpenCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaneTracking_OpenCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97C31811C18E7DC00B5588A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D97C31831C18E7DC00B5588A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D97C31841C18E7DC00B5588A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D97C31861C18E7DC00B5588A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D97C31871C18E7DC00B5588A /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		D97C318A1C18E7DC00B5588A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D97C318C1C18E7DC00B5588A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D97C318F1C18E7DC00B5588A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D97C31911C18E7DC00B5588A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97C31961C18E7DC00B5588A /* LaneTracking_OpenCVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaneTracking_OpenCVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97C319A1C18E7DC00B5588A /* LaneTracking_OpenCVTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaneTracking_OpenCVTests.m; sourceTree = "<group>"; };
+		D97C319C1C18E7DD00B5588A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97C31A11C18E7DD00B5588A /* LaneTracking_OpenCVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaneTracking_OpenCVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97C31A51C18E7DD00B5588A /* LaneTracking_OpenCVUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaneTracking_OpenCVUITests.m; sourceTree = "<group>"; };
+		D97C31A71C18E7DD00B5588A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97C31B31C18E87700B5588A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D97C317A1C18E7DC00B5588A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D902B19D1C194042001B11FF /* ImageIO.framework in Frameworks */,
+				D902B19B1C194035001B11FF /* CoreMedia.framework in Frameworks */,
+				D902B1991C194029001B11FF /* CoreVideo.framework in Frameworks */,
+				D97C31B41C18E87700B5588A /* opencv2.framework in Frameworks */,
+				D902B1971C19013C001B11FF /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97C31931C18E7DC00B5588A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97C31B51C18E87800B5588A /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97C319E1C18E7DD00B5588A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97C31B61C18E87800B5588A /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D97C31741C18E7DC00B5588A = {
+			isa = PBXGroup;
+			children = (
+				D902B19C1C194042001B11FF /* ImageIO.framework */,
+				D902B19A1C194035001B11FF /* CoreMedia.framework */,
+				D902B1981C194029001B11FF /* CoreVideo.framework */,
+				D902B1961C19013C001B11FF /* AVFoundation.framework */,
+				D97C31B31C18E87700B5588A /* opencv2.framework */,
+				D97C317F1C18E7DC00B5588A /* LaneTracking_OpenCV */,
+				D97C31991C18E7DC00B5588A /* LaneTracking_OpenCVTests */,
+				D97C31A41C18E7DD00B5588A /* LaneTracking_OpenCVUITests */,
+				D97C317E1C18E7DC00B5588A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D97C317E1C18E7DC00B5588A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D97C317D1C18E7DC00B5588A /* LaneTracking_OpenCV.app */,
+				D97C31961C18E7DC00B5588A /* LaneTracking_OpenCVTests.xctest */,
+				D97C31A11C18E7DD00B5588A /* LaneTracking_OpenCVUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D97C317F1C18E7DC00B5588A /* LaneTracking_OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				D97C31831C18E7DC00B5588A /* AppDelegate.h */,
+				D97C31841C18E7DC00B5588A /* AppDelegate.m */,
+				D97C31861C18E7DC00B5588A /* ViewController.h */,
+				D97C31871C18E7DC00B5588A /* ViewController.mm */,
+				D97C31891C18E7DC00B5588A /* Main.storyboard */,
+				D97C318C1C18E7DC00B5588A /* Assets.xcassets */,
+				D97C318E1C18E7DC00B5588A /* LaunchScreen.storyboard */,
+				D97C31911C18E7DC00B5588A /* Info.plist */,
+				D97C31801C18E7DC00B5588A /* Supporting Files */,
+			);
+			path = LaneTracking_OpenCV;
+			sourceTree = "<group>";
+		};
+		D97C31801C18E7DC00B5588A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D97C31811C18E7DC00B5588A /* main.m */,
+				D902B1941C18FBE7001B11FF /* prince_book.jpg */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D97C31991C18E7DC00B5588A /* LaneTracking_OpenCVTests */ = {
+			isa = PBXGroup;
+			children = (
+				D97C319A1C18E7DC00B5588A /* LaneTracking_OpenCVTests.m */,
+				D97C319C1C18E7DD00B5588A /* Info.plist */,
+			);
+			path = LaneTracking_OpenCVTests;
+			sourceTree = "<group>";
+		};
+		D97C31A41C18E7DD00B5588A /* LaneTracking_OpenCVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D97C31A51C18E7DD00B5588A /* LaneTracking_OpenCVUITests.m */,
+				D97C31A71C18E7DD00B5588A /* Info.plist */,
+			);
+			path = LaneTracking_OpenCVUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D97C317C1C18E7DC00B5588A /* LaneTracking_OpenCV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97C31AA1C18E7DD00B5588A /* Build configuration list for PBXNativeTarget "LaneTracking_OpenCV" */;
+			buildPhases = (
+				D97C31791C18E7DC00B5588A /* Sources */,
+				D97C317A1C18E7DC00B5588A /* Frameworks */,
+				D97C317B1C18E7DC00B5588A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaneTracking_OpenCV;
+			productName = LaneTracking_OpenCV;
+			productReference = D97C317D1C18E7DC00B5588A /* LaneTracking_OpenCV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D97C31951C18E7DC00B5588A /* LaneTracking_OpenCVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97C31AD1C18E7DD00B5588A /* Build configuration list for PBXNativeTarget "LaneTracking_OpenCVTests" */;
+			buildPhases = (
+				D97C31921C18E7DC00B5588A /* Sources */,
+				D97C31931C18E7DC00B5588A /* Frameworks */,
+				D97C31941C18E7DC00B5588A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D97C31981C18E7DC00B5588A /* PBXTargetDependency */,
+			);
+			name = LaneTracking_OpenCVTests;
+			productName = LaneTracking_OpenCVTests;
+			productReference = D97C31961C18E7DC00B5588A /* LaneTracking_OpenCVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D97C31A01C18E7DD00B5588A /* LaneTracking_OpenCVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97C31B01C18E7DD00B5588A /* Build configuration list for PBXNativeTarget "LaneTracking_OpenCVUITests" */;
+			buildPhases = (
+				D97C319D1C18E7DD00B5588A /* Sources */,
+				D97C319E1C18E7DD00B5588A /* Frameworks */,
+				D97C319F1C18E7DD00B5588A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D97C31A31C18E7DD00B5588A /* PBXTargetDependency */,
+			);
+			name = LaneTracking_OpenCVUITests;
+			productName = LaneTracking_OpenCVUITests;
+			productReference = D97C31A11C18E7DD00B5588A /* LaneTracking_OpenCVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D97C31751C18E7DC00B5588A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Jaineel Dalal";
+				TargetAttributes = {
+					D97C317C1C18E7DC00B5588A = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 9VUC3R8D65;
+					};
+					D97C31951C18E7DC00B5588A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = D97C317C1C18E7DC00B5588A;
+					};
+					D97C31A01C18E7DD00B5588A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = D97C317C1C18E7DC00B5588A;
+					};
+				};
+			};
+			buildConfigurationList = D97C31781C18E7DC00B5588A /* Build configuration list for PBXProject "LaneTracking_OpenCV" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D97C31741C18E7DC00B5588A;
+			productRefGroup = D97C317E1C18E7DC00B5588A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D97C317C1C18E7DC00B5588A /* LaneTracking_OpenCV */,
+				D97C31951C18E7DC00B5588A /* LaneTracking_OpenCVTests */,
+				D97C31A01C18E7DD00B5588A /* LaneTracking_OpenCVUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D97C317B1C18E7DC00B5588A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97C31901C18E7DC00B5588A /* LaunchScreen.storyboard in Resources */,
+				D902B1951C18FBE7001B11FF /* prince_book.jpg in Resources */,
+				D97C318D1C18E7DC00B5588A /* Assets.xcassets in Resources */,
+				D97C318B1C18E7DC00B5588A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97C31941C18E7DC00B5588A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97C319F1C18E7DD00B5588A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D97C31791C18E7DC00B5588A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97C31881C18E7DC00B5588A /* ViewController.mm in Sources */,
+				D97C31851C18E7DC00B5588A /* AppDelegate.m in Sources */,
+				D97C31821C18E7DC00B5588A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97C31921C18E7DC00B5588A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97C319B1C18E7DC00B5588A /* LaneTracking_OpenCVTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97C319D1C18E7DD00B5588A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97C31A61C18E7DD00B5588A /* LaneTracking_OpenCVUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D97C31981C18E7DC00B5588A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D97C317C1C18E7DC00B5588A /* LaneTracking_OpenCV */;
+			targetProxy = D97C31971C18E7DC00B5588A /* PBXContainerItemProxy */;
+		};
+		D97C31A31C18E7DD00B5588A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D97C317C1C18E7DC00B5588A /* LaneTracking_OpenCV */;
+			targetProxy = D97C31A21C18E7DD00B5588A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D97C31891C18E7DC00B5588A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D97C318A1C18E7DC00B5588A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D97C318E1C18E7DC00B5588A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D97C318F1C18E7DC00B5588A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D97C31A81C18E7DD00B5588A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D97C31A91C18E7DD00B5588A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D97C31AB1C18E7DD00B5588A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = LaneTracking_OpenCV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JaineelDalal.LaneTracking-OpenCV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D97C31AC1C18E7DD00B5588A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = LaneTracking_OpenCV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JaineelDalal.LaneTracking-OpenCV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D97C31AE1C18E7DD00B5588A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = LaneTracking_OpenCVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JaineelDalal.LaneTracking-OpenCVTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaneTracking_OpenCV.app/LaneTracking_OpenCV";
+			};
+			name = Debug;
+		};
+		D97C31AF1C18E7DD00B5588A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = LaneTracking_OpenCVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JaineelDalal.LaneTracking-OpenCVTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaneTracking_OpenCV.app/LaneTracking_OpenCV";
+			};
+			name = Release;
+		};
+		D97C31B11C18E7DD00B5588A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = LaneTracking_OpenCVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JaineelDalal.LaneTracking-OpenCVUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LaneTracking_OpenCV;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D97C31B21C18E7DD00B5588A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = LaneTracking_OpenCVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "JaineelDalal.LaneTracking-OpenCVUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LaneTracking_OpenCV;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D97C31781C18E7DC00B5588A /* Build configuration list for PBXProject "LaneTracking_OpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97C31A81C18E7DD00B5588A /* Debug */,
+				D97C31A91C18E7DD00B5588A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D97C31AA1C18E7DD00B5588A /* Build configuration list for PBXNativeTarget "LaneTracking_OpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97C31AB1C18E7DD00B5588A /* Debug */,
+				D97C31AC1C18E7DD00B5588A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D97C31AD1C18E7DD00B5588A /* Build configuration list for PBXNativeTarget "LaneTracking_OpenCVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97C31AE1C18E7DD00B5588A /* Debug */,
+				D97C31AF1C18E7DD00B5588A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D97C31B01C18E7DD00B5588A /* Build configuration list for PBXNativeTarget "LaneTracking_OpenCVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97C31B11C18E7DD00B5588A /* Debug */,
+				D97C31B21C18E7DD00B5588A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D97C31751C18E7DC00B5588A /* Project object */;
+}

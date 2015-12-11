@@ -26,7 +26,7 @@
 	/* === Camera and frame setup === */
     video = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
     video.outputImageOrientation = UIInterfaceOrientationPortrait;
-	video.runBenchmark = YES;
+	video.runBenchmark = NO;
 	
 	/* === Use movie file === */
 	// Set the movie file to read
@@ -117,8 +117,8 @@
 		}
 
 		// Debug prints
-		NSLog(@"Number of lines: %ld; Number of new lines: %d", (unsigned long) linesDetected, nLines);
-		if (nLines > 0) NSLog(@"%f %f %f %f", lineArray[0], lineArray[1], lineArray[2], lineArray[3]);
+//		NSLog(@"Number of lines: %ld; Number of new lines: %d", (unsigned long) linesDetected, nLines);
+//		if (nLines > 0) NSLog(@"%f %f %f %f", lineArray[0], lineArray[1], lineArray[2], lineArray[3]);
 
 		// Render lines
 		[lineGenerator renderLinesFromArray:lineArray count:nLines frameTime:frameTime];

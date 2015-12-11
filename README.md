@@ -1,6 +1,7 @@
 # Real-Time Lane Tracking for Mobile Devices
 Final project for 16-423 Fall 2015. <br>
-Jaineel Dalal (*jdalal*), William Ku (*wku*)
+Jaineel Dalal (*jdalal*), William Ku (*wku*) <br>
+<it>(Updated 12/11/2015)</it>
 
 ### Summary
 Our project aims to provide a more convenient way for the driver to stay within driving lanes - a difficult problem for even seasoned drivers, especially in Pittsburgh - through a projected guiding line that the driver can follow in real-time. We look to efficient Hough transform implementations and hope to achieve near- or over 30 frame-per-second results using OpenGL ES and potentially the GPUImage library. If time permits, we would like to extend the solution to curve representations as well.
@@ -28,7 +29,7 @@ For validation, we measure the performance of our application against available 
 ### Project Feasibility
 The scope of the project is determined with the limited time resources in mind. We are confident that we can achieve the required functionalities, possibly with cushion time for extra validation testing or adding desired features. The detailed project roadmap is shown in the next section.
 
-### Schedule (Updated 12/11/2015)
+### Schedule
 | Week of | Jaineel | William | Status |
 |---------|---------|---------|---------|
 | 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage | On-time

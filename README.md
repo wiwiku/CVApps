@@ -1,6 +1,7 @@
 # Real-Time Lane Tracking for Mobile Devices
 Final project for 16-423 Fall 2015. <br>
-Jaineel Dalal (*jdalal*), William Ku (*wku*)
+Jaineel Dalal (*jdalal*), William Ku (*wku*) <br>
+<i>(Updated 12/11/2015)</i>
 
 ### Summary
 Our project aims to provide a more convenient way for the driver to stay within driving lanes - a difficult problem for even seasoned drivers, especially in Pittsburgh - through a projected guiding line that the driver can follow in real-time. We look to efficient Hough transform implementations and hope to achieve near- or over 30 frame-per-second results using OpenGL ES and potentially the GPUImage library. If time permits, we would like to extend the solution to curve representations as well.
@@ -13,14 +14,14 @@ The line detection algorithms (namely, Hough transform) in OpenCV is too slow fo
 
 ### Requirements
 PLAN TO ACHIEVE:
-- Detection of the left and right lane markers that belong to the driver’s lane;
-- Extraction of the left and right lane markers away from other detected lines, if any;
-- Projection of visual marker for the driver’s guidance.
+- Detection of the left and right lane markers that belong to the driver’s lane; [<b>Achieved</b>]
+- Extraction of the left and right lane markers away from other detected lines, if any;  [<b>Achieved</b>]
+- Projection of visual marker for the driver’s guidance.  [<b>Achieved</b>]
 
 HOPE TO ACHIEVE
-- Apply the planned requirements to curves (in turning situations);
-- Pre-driving calibration to understand the vehicle side extensions;
-- Projection of the side limits for staying in the current lane.
+- Apply the planned requirements to curves (in turning situations); [<b>Did not achieve</b>]
+- Pre-driving calibration to understand the vehicle side extensions; [<b>Did not achieve</b>]
+- Projection of the side limits for staying in the current lane. [<b>Did not achieve</b>]
 
 ### Success Metrics
 For validation, we measure the performance of our application against available driving videos (from online sources, etc.). Finally, we would like to test the application in extremely controlled (for safety) driving scenarios. A video of the application running in real-time (with stock footage or in a car) and displaying the functionalities specified by the requirements will validate the success of this project.
@@ -28,17 +29,17 @@ For validation, we measure the performance of our application against available 
 ### Project Feasibility
 The scope of the project is determined with the limited time resources in mind. We are confident that we can achieve the required functionalities, possibly with cushion time for extra validation testing or adding desired features. The detailed project roadmap is shown in the next section.
 
-### Schedule (Updated 11/23/2015)
-| Week of | Jaineel | William |
-|---------|---------|---------|
-| 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage |
-| 11/16 | Implement lane marker filtering | Integrate video feed and line detection |
-| 11/23* | Implement lane marker filtering | Implement lane marker filtering |
-| 11/26 | Project visual guidance marker | Compute center line |
-| 11/30 | Benchmarking | Integration testing |
-| 12/3 | Real-time testing | Real-time testing |
-| 12/7 | Reporting | Reporting |
-* Denotes light workload week for time cushion and holidays
+### Schedule
+| Week of | Jaineel | William | Status |
+|---------|---------|---------|---------|
+| 11/9 | Test Hough transform on OpenGL ES | Test Hough transform on GPUImage | On-time
+| 11/16 | Implement lane marker filtering | Integrate video feed and line detection | Behind
+| 11/23 * | Implement lane marker filtering | Implement lane marker filtering | Behind
+| 11/26 | Project visual guidance marker | Compute center line | Behind
+| 11/30 | Benchmarking | Integration testing | Behind
+| 12/3 | Real-time testing | Real-time testing | On-time
+| 12/7 | Reporting | Reporting | On-time
+\* Denotes light workload week for time cushion and holidays
 
 ### References
 [1] Abdulhakam.AM.Assidiq, Othman O. Khalifa, Md. Rafiqul Islam, Sheroz Khan : Real time Lane Detection for Autonomous Vehicles, International Conference on Computer and Communication Engineering, 2008 <br>
